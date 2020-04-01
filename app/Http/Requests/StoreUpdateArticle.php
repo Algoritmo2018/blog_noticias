@@ -24,12 +24,11 @@ class StoreUpdateArticle extends FormRequest
         return [
             'title' =>[
                 'required',
-                'min:4',
+                'min:1',
                 'max:30',
             ],
             'caption' =>[
-                'required',
-                'min:4',
+                'min:1',
                 'max:30',
             ],
             'category_id' =>[
@@ -39,7 +38,7 @@ class StoreUpdateArticle extends FormRequest
             ],
             'content' =>[
                 'required',
-                'min:5',
+                'min:1',
             ],
             'image' =>[
                 'required',

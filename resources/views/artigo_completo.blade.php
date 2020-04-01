@@ -26,30 +26,61 @@
 
   <main class="mt-3">
     <div class="container d-flex flex-column">
+
       <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" class="img-fluid rounded  text-center">
       <small class="mt-2">{{$articles->category->categoria}} - {{$articles->created_at}}</small>
       <h5 class="mt-2">{{$articles->title}}</h5>
       <h6 class="mt-2">{{$articles->caption}}</h6>
       <p class="tex-right">{{$articles->content}}</p>
- 
+
         <div>
       </div>
       <hr class="mt-3">
 
       <h2 class="mt-2">Comentarios</h2>
       <div class="row align-items-start">
+
+
+        @foreach ($comments as $comment)
+
+
         <div class="col-1"><i class="bi bi-person-circle fs-2"></i></div>
-        <div class="col-11 mt-2"><strong>Luis Mateus</strong><br>
-        <small>Jan 04, 2024 as 20:00</small>
-      <p class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque similique facilis iusto reiciendis ipsum eius dolorem dolore inventore. Sapiente sint rerum sunt culpa nihil fuga ipsa dolores nostrum nisi perferendis.</p>
-      <div><button class="btn btn-primary me-2">Editar</button><button class="btn btn-danger">Eliminar</button></div>
+        <div class="col-11 mt-2"><strong>{{$comment->user->name}}</strong><br>
+        <small>{{$comment->created_at}}</small>
+      <p class="mt-2">{{$comment->comment}}</p>
+      <div>
+
+        <form action="{{route('editar.comment', $comment->id)}}" method="get">
+            @csrf
+
+        <button class="btn btn-primary me-2" type="submit">Editar</button>
+    </form>
+        <form action="{{route('delete.comment', $comment->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Eliminar</button></form></div>
       </div>
+      @endforeach
       </div>
-      <div class="form-floating mt-3"><textarea class="form-control mb-2" name="" id="msg" style="height: 100px;"
+
+      <!--Menu de links-->
+@include('partials/paginationcomment')
+<!--Fim Menu de links-->
+
+
+      <form action="{{route('create.comment', $articles->id)}}" method="post">
+        @csrf
+      <div class="form-floating mt-3"><textarea class="form-control mb-2" name="comment" id="msg" style="height: 100px;"
         placeholder=" " cols="30" rows="10"></textarea>
     <label for="msg">Escreva um comentario:</label>
-    <button type="submit" class="btn btn-primary">Carregar</button>
-</div>
+    @if($errors->any())
+    @foreach ($errors->all() as $error)
+           {{$error}}
+
+    @endforeach
+    @endif
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</div></form>
     </div>
   </main>
 

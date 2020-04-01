@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
@@ -79,6 +80,16 @@ Route::get('/homeadm/article/title', [AdminController::class, 'HomeAdm'])->name(
 
 Route::put('/{id}/article/update', [ArticleController::class, 'UpdateArticle'])->name('update_article');
 
+
+
+Route::post('/{id}/create/comment', [CommentController::class, 'create'])->name('create.comment');
+
+
+Route::get('/{id}/editar/comment', [CommentController::class, 'editar'])->name('editar.comment');
+
+Route::put('/{id}/update/comment', [CommentController::class, 'UpdateComment'])->name('update.comment');
+
+Route::delete('/{id}/delete/comment', [CommentController::class, 'Destroy'])->name('delete.comment');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

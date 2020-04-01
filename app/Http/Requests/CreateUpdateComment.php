@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArmazenarUpdateCategoria extends FormRequest
+class CreateUpdateComment extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,10 @@ class ArmazenarUpdateCategoria extends FormRequest
     public function rules(): array
     {
         return [
-            'categoria' => 'required|min:4|max:20|unique:categories',
+            'comment' => [
+                'required',
+                'min:1',
+            ]
         ];
     }
 }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Article;
 use App\Models\Slide;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class HomeController
@@ -40,7 +41,7 @@ class HomeController
         return view('index', compact('categories', 'slides', 'articles'));
     }
 
-    public function artigo_completo(Category $category, string $id, Article $articles)
+    public function artigo_completo(Category $category, string $id, Article $articles, Comment $comment)
     {
 
 
@@ -48,9 +49,11 @@ class HomeController
          $articles = $articles->with('category');
          //Artigo por id
         $articles = $articles->where('id',$id)->first();
- 
+
 //Carrega todas as categorias
         $categories = $category->all();
-        return view('artigo_completo', compact('categories', 'articles'));
+
+        $comments =$comment->where('article_id', $id)->with('user')->simplepaginate(12);
+        return view('artigo_completo', compact('categories', 'articles', 'comments'));
     }
 }

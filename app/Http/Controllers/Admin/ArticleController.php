@@ -35,7 +35,8 @@ class ArticleController extends Controller
          if (!$articles = $articles->where('id', $id)->first()) {
              return back();
          }
-        $categories = $category->all();
+       //Traz todas as categorias cadastradas no banco de dados
+         $categories = $category->all();
         return view('admin/editar_artigo', compact('categories', 'articles'));
     }
 
@@ -80,11 +81,7 @@ class ArticleController extends Controller
 
 
     public function Destroy(Request $request, Article $articles, string $id)
-    {
-
-
-
-
+    { 
         // Traz o id da imagem e verifica si o mesmo está cadastrado no banco de dados
 
         if (!$articles = $articles->find($id)) {
