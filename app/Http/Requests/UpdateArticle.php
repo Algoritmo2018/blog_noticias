@@ -42,7 +42,7 @@ class UpdateArticle extends FormRequest
                 'min:5',
             ],
             'imagenew' =>[
-                'required',
+                 
                 'min:5',
                 'max:2048',
                 'image',

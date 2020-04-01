@@ -30,13 +30,15 @@ Route::get('/navbar', [HomeController::class, 'Navbar']);
 
 Route::get('/index', [HomeController::class, 'index'])->name('home');
 
-Route::get('/artigo_completo', [HomeController::class, 'artigo_completo'])->name('artigo_completo');
+Route::get('/{id}/artigo_completo', [HomeController::class, 'artigo_completo'])->name('artigo_completo');
 
 Route::get('/homeadm', [AdminController::class, 'HomeAdm'])->name('homeadm');
 
 Route::get('/cadastrar_artigo', [AdminController::class, 'CadastrarArtigo'])->name('cadastrar_artigo');
 Route::post('/create_article', [ArticleController::class, 'create'])->name('create.article');
 
+
+Route::delete('/{id}/destroy_article', [ArticleController::class, 'Destroy'])->name('destroy_article');
 
 Route::get('/cadastrar_categoria', [AdminController::class, 'CadastrarCategoria'])->name('cadastrar_categoria');
 
@@ -50,7 +52,7 @@ Route::delete('/{id}/delete_categoria', [AdminController::class, 'DestroyCategor
 
 Route::get('/cadastrar_slide', [AdminController::class, 'CadastrarSlide'])->name('cadastrar_slide');
 
-Route::get('/editar_artigo', [AdminController::class, 'EditarArtigo'])->name('editar_artigo');
+Route::get('/{id}/editar_artigo', [ArticleController::class, 'EditarArtigo'])->name('editar_artigo');
 
 
 
@@ -71,3 +73,8 @@ Route::delete('', [ImageController::class, 'Destroy'])->name('images.delete');
 Route::get('/article/title', [HomeController::class, 'index'])->name('article.search1');
 
 Route::get('/article/category', [HomeController::class, 'index'])->name('article.search.category');
+
+
+Route::get('/homeadm/article/title', [AdminController::class, 'HomeAdm'])->name('article.search');
+
+Route::put('/{id}/article/update', [ArticleController::class, 'UpdateArticle'])->name('update_article');
