@@ -26,24 +26,13 @@
 
   <main class="mt-3">
     <div class="container d-flex flex-column">
-      <img src="{{asset('upload/img/noticias/gemini.jpg')}}" alt="" class="img-fluid rounded  text-center">
-      <small class="mt-2">Tecnologia - JAN 04, 2024</small>
-      <h5 class="mt-2">Nova inteligencia Atrifical do google</h5>
-      <p class="tex-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque incidunt nostrum culpa recusandae ab repellendus eos id! Porro libero totam animi harum distinctio eligendi, itaque sapiente, ipsum unde obcaecati, ut vel et consequuntur laboriosam. Aspernatur error iste, a tempora fugiat officia. Ut sint ullam iste. Officia esse sunt dolor vel.</p>
-      <p>Id Lorem eu ullamco id sint aliquip deserunt exercitation quis ex occaecat. Exercitation sint eiusmod do do laboris sint enim reprehenderit cillum cupidatat. Voluptate culpa dolor duis ipsum dolore excepteur ea et ea amet..</p>
-      <p>Id Lorem eu ullamco id sint aliquip deserunt exercitation quis ex occaecat. Exercitation sint eiusmod do do laboris sint enim reprehenderit cillum cupidatat. Voluptate culpa dolor duis ipsum dolore excepteur ea et ea amet..</p>
-      <p>Id Lorem eu ullamco id sint aliquip deserunt exercitation quis ex occaecat. Exercitation sint eiusmod do do laboris sint enim reprehenderit cillum cupidatat. Voluptate culpa dolor duis ipsum dolore excepteur ea et ea amet..</p>
-      <p>Id Lorem eu ullamco id sint aliquip deserunt exercitation quis ex occaecat. Exercitation sint eiusmod do do laboris sint enim reprehenderit cillum cupidatat. Voluptate culpa dolor duis ipsum dolore excepteur ea et ea amet..</p>
-      <p>Id Lorem eu ullamco id sint aliquip deserunt exercitation quis ex occaecat. Exercitation sint eiusmod do do laboris sint enim reprehenderit cillum cupidatat. Voluptate culpa dolor duis ipsum dolore excepteur ea et ea amet..</p>
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar com grupos de botões">
-        <div class="btn-group me-2" role="group" aria-label="Primeiro grupo">
-          <button type="button" class="btn btn-outline-info">Tecnologia</button>
-        </div>
-        <div class="btn-group mr-2" role="group" aria-label="Segundo grupo">
-          <button type="button" class="btn btn-outline-info">Inovação</button>
-        </div>
-        <div class="btn-group" role="group" aria-label="Terceiro grupo">
-        </div>
+      <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" class="img-fluid rounded  text-center">
+      <small class="mt-2">{{$articles->category->categoria}} - {{$articles->created_at}}</small>
+      <h5 class="mt-2">{{$articles->title}}</h5>
+      <h6 class="mt-2">{{$articles->caption}}</h6>
+      <p class="tex-right">{{$articles->content}}</p>
+ 
+        <div>
       </div>
       <hr class="mt-3">
 
@@ -65,46 +54,12 @@
   </main>
 
 
-<div class=" d-md-none d-lg-none d-sm-none d-block"  style="height: 250px;"></div>
-<div class="col-md d-sm-none d-lg-none d-md-block d-none"  style="height: 150px;"></div>
-<div class="col-lg d-md-none d-sm-none d-lg-block d-none"  style="height: 130px;"></div>
-<div class="col-sm d-md-none d-lg-none d-sm-block d-none"  style="height: 280px;"></div>
+<!--Inicio do footer-->
 
- <!--Rodape-->
-  <footer   class="border-top text-bg-dark ">
-    <div class="container">
-        <div class="row py-3">
-            <div class="col-12 col-md-4 text-center">
-                &copy; 2024 - Alda News<br>
-                Rua Virtual Inexistente, 171, Compulândia/PC <br>
-                CPNJ 99.999.999/0001-99
-            </div>
-            <div class="col-12 col-md-4 text-center text-bg-dark">
-                <a href="privacidade.html" class="text-decoration-none text-white">
-                    Política de Privacidade
-                </a><br>
-                <a href="termos.html" class="text-decoration-none text-white">
-                    Termos de Uso
-                </a><br>
-                <a href="quemsomos.html" class="text-decoration-none text-white">
-                    Quem Somos
-                </a>
-            </div>
-            <div class="col-12 col-md-4 text-center text-bg-dark">
-                <a href="/contato.html" class="text-decoration-none text-white">
-                    Contato pelo Site
-                </a><br>
-                E-mail: <a href="mailto:email@dominio.com" class="text-decoration-none text-white">
-                    aldanews@gmail.com
-                </a><br>
-                Telefone: <a href="phone:28999990000" class="text-decoration-none  text-white">
-                    (+244) 938-092-678
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--Fim do Rodape-->
+@include('partials/footer')
+
+<!--Fim do footer-->
+
 </body>
 
 </html>

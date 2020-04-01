@@ -14,18 +14,29 @@ class AdminController
 
 
 
-    public function HomeAdm(Category $category, Article $articles)
+    public function HomeAdm(Category $category, Article $articles, Slide $slide, Request $request)
     {
 
+        // Para trazer todas as categorias
+        $slides = $slide->all();
 
         // Para trazer todas as categorias
         $categories = $category->all();
 
-// Para trazer todos os artigos do banco de dados com as suas categorias
-$articles = $articles->with('category')->get();
-// $articles = Article::paginate();
 
-        return view('admin/homeadm', compact('categories', 'articles'));
+        //Para trazer os artigos correspondentes a pesquisa
+        if (!empty($request->input('search'))) {
+             
+            $valor = $request->input('search');
+            $articles = $articles->where('title', 'like', "%{$valor}%");
+        }
+        // Para trazer todos os artigos do banco de dados com as suas categorias
+        $articles = $articles->with('category');
+        //Para trabalhar a paginação
+        $articles = $articles->simplepaginate(3);
+
+
+        return view('admin/homeadm', compact('categories', 'articles', 'slides'));
     }
 
 
@@ -82,7 +93,8 @@ $articles = $articles->with('category')->get();
         return redirect()->route('homeadm');
     }
 
-    public function DestroyCategoria(Category $category ,string|int $id){
+    public function DestroyCategoria(Category $category, string|int $id)
+    {
 
         if (!$category = $category->find($id)) {
             return back();
@@ -102,5 +114,4 @@ $articles = $articles->with('category')->get();
         $categories = $category->all();
         return view('admin/editar_slide', compact('categories'));
     }
-
 }

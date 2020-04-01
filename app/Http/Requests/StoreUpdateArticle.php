@@ -39,12 +39,13 @@ class StoreUpdateArticle extends FormRequest
             ],
             'content' =>[
                 'required',
-                'min:5', 
+                'min:5',
             ],
             'image' =>[
                 'required',
                 'min:5',
                 'max:2048',
+                'image',
             ],
 
         ];

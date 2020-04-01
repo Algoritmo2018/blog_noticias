@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SlideController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\ArticleController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -64,3 +66,8 @@ Route::get('/images', [ImageController::class, 'index'])->name('images.index');
 Route::post('/images/upload', [ImageController::class, 'store'])->name('images.upload');
 
 Route::delete('', [ImageController::class, 'Destroy'])->name('images.delete');
+
+
+Route::get('/article/title', [HomeController::class, 'index'])->name('article.search1');
+
+Route::get('/article/category', [HomeController::class, 'index'])->name('article.search.category');

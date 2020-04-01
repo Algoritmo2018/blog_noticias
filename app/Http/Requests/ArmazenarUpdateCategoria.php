@@ -22,7 +22,7 @@ class ArmazenarUpdateCategoria extends FormRequest
     public function rules(): array
     {
         return [
-            'categoria' => 'required|min:4|max:10|unique:categories',
+            'categoria' => 'required|min:4|max:15|unique:categories',
         ];
     }
 }

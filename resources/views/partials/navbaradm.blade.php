@@ -25,15 +25,17 @@
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">Pesquisar</h5>
       <button class="btn-close" style="background-color: rgb(173, 2, 2);"  data-bs-dismiss="offcanvas"></button>
-    </div>
+    </div>  <form action="{{route('article.search')}}" method="get">
+        @csrf
     <div class="offcanvas-body">
       <div class="input-group mt-2">
-        <input type="search" name="" id="" class="form-control">
-        <button class="btn btn-primary">
+
+        <input type="search" name="search" id="" class="form-control">
+        <button class="btn btn-primary" type="submit">
           <i class="bi-search"></i>
         </button>
       </div>
-    </div>
+    </div></form>
 
   </div>
   <!--fim Painel de pesquisa-->
