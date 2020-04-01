@@ -41,20 +41,49 @@
   <!--Painel de categorias-->
   <div class="offcanvas offcanvas-start text-bg-dark" id="categorias" tabindex="1" data-bs-scroll="true"
     data-bs-backdrop="static" style="--bs-offcanvas-width:250px;">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Links</h5>
-      <button class="btn-close btn btn-light" style="background-color: rgb(0, 183, 255);" data-bs-dismiss="offcanvas"></button>
-    </div>
 
-    <div class="offcanvas-body ">
-       <ul class="pagination d-flex flex-column justify-content-start">
-         <li class="page-item mb-2">
-          <a href="cadastrar-se.html" class="nav-link">Cadastrar-se</a>
-        </li><li class="page-item mb-5">
-            <a href="login.html" class="nav-link">Login</a>
-        </li>
-      </ul>
+      @if (Route::has('login'))
+      @auth
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Usuario</h5>
+        <button class="btn-close btn btn-light" style="background-color: rgb(0, 183, 255);" data-bs-dismiss="offcanvas"></button>
       </div>
+      <div class="offcanvas-body ">
+         <ul class="pagination d-flex flex-column justify-content-start">
+            <li class="page-item mb-2">
+                <a href="#" class="nav-link text-">Olá, {{Auth::user()->name}}</a>
+              </li> <li class="page-item mb-2">
+            <a href="{{route('profile.edit')}}" class="nav-link">Perfil</a>
+          </li><li class="page-item mb-5">
+              <!-- Authentication -->
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+              <a href="{{route('logout')}}" class="nav-link text-small text-danger" onclick="event.preventDefault();
+              this.closest('form').submit();">
+                Terminar sessão</a>
+            </form>
+          </li>
+        </ul>
+        </div>
+        @else
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Links</h5>
+            <button class="btn-close btn btn-light" style="background-color: rgb(0, 183, 255);" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body ">
+             <ul class="pagination d-flex flex-column justify-content-start">
+                @if (Route::has('register'))
+               <li class="page-item mb-2">
+                <a href="{{ route('register') }}" class="nav-link">Cadastrar-se</a>
+              </li>
+              @endif
+              <li class="page-item mb-5">
+                  <a href="{{ route('login') }}" class="nav-link">Login</a>
+              </li>
+            </ul>
+            </div>
+            @endauth
+            @endif
 
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">Categorias</h5>
@@ -65,8 +94,9 @@
         @foreach ($categories as $category)
         <form action="{{route('article.search.category')}}"><li class="page-item mb-2">
 <input type="hidden" name="scategory" value="{{$category->id}}">
-            <button   type="submit" class="btn btn-secondary"   style="border:none; background:#212529; ">{{$category->categoria}}</button>
-          </li></form>
+<a href="{{route('article.search.category')}}" class="nav-link" onclick="event.preventDefault();
+this.closest('form').submit();">{{$category->categoria}}</a>
+           </li></form>
       @endforeach
       </ul>
       </div>
