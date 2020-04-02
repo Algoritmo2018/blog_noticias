@@ -2,28 +2,44 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+    <div class="container d-flex justify-content-center mt-3 mb-2">
     <form method="POST" action="{{ route('login') }}">
+        <h1>Insira os seus dados, para iniciar sessão</h1>
+        <hr class="mb-3">
+        <div class="form-floating">
+
+
+
         @csrf
 
         <!-- Email Address -->
-        <div>
+        <div class="col-md-12 mb-3">
+
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                </div>
+            <x-text-input id="email" class="form-control" type="email" name="email" aria-describedby="inputGroupPrepend2"  :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        </div>  </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div class="class="col-md-12 mb-3"">
             <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2"><i class="bi-key" style="font-size: 24px; line-height: 24px;"></i></span>
+                </div>
+            <x-text-input id="password" class="form-control" aria-describedby="inputGroupPrepend2"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        </div></div>
+    </div>
+
 
         <!-- Remember Me -->
         <div class="block mt-4">
@@ -40,9 +56,10 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="btn btn-primary ms-2">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
     </form>
+</div>
 </x-guest-layout>
