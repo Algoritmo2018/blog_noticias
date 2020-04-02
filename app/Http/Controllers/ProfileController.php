@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +15,14 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request, Category $category): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        // Para trazer todas as categorias
+        $categories = $category->all();
+$user =$request->user();
+ 
+        return view('profile.edit', compact('user','categories'),);
+
     }
 
     /**

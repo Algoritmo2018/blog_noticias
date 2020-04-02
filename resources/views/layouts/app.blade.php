@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
- 
+
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
         <link rel="stylesheet" href="{{asset('icons-main/font/bootstrap-icons.css')}}">
@@ -15,7 +15,9 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+
+
+
 
             <!-- Page Heading -->
             @if (isset($header))
