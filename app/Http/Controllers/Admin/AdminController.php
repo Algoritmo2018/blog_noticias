@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Home\HomeController;
 use App\Models\Slide;
 use App\Models\Article;
@@ -151,6 +153,9 @@ class AdminController
 
     foreach ($articles as $article) {
         $article->comment()->delete();
+     
+           // Delecta a imagem x que esta na pasta storage/app/public/img/slides/
+           File::delete('storage/img/article/'.$article->image_path);
         $article->delete();
     }
         $category->delete();
