@@ -24,7 +24,7 @@
 
 
   <!-- Formulario de cadastro-->
-  <div class="container d-flex justify-content-center mt-3 mb-2">
+  <div class="container d-flex-column justify-content-center mt-3 mb-2">
 
   <form action="{{route('update_categoria', $category->id)}}" method="post">
     @csrf()
@@ -51,21 +51,13 @@
         @endforeach
         @endif
       <button class="btn btn-primary" type="submit">Guardar</button>
-  </form> <form action="{{route('destroy_categoria', $category->id)}}" method="POST">
+  </form> <form class="mt-2" action="{{route('destroy_categoria', $category->id)}}" method="POST">
     @csrf()
     @method('DELETE')
     <button class="btn btn-danger" type="submit">Apagar</button></form></div>
 
 
   <!--fim Formulario de cadastro-->
-
-
-  <!--Inicio do footer-->
-
-@include('partials/footer')
-
-<!--Fim do footer-->
-
 </body>
 
 </html>

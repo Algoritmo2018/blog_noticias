@@ -27,7 +27,7 @@
   <main class="mt-3">
     <div class="container d-flex flex-column">
 
-      <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" class="img-fluid rounded  text-center">
+      <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" class="img-fluid rounded  text-center" style="height: 300px">
       <small class="mt-2">{{$articles->category->categoria}} - {{$articles->created_at}}</small>
       <h5 class="mt-2">{{$articles->title}}</h5>
       <h6 class="mt-2">{{$articles->caption}}</h6>
@@ -42,13 +42,13 @@
 
 
         @foreach ($comments as $comment)
-
+<div class="mb-2"></div>
 
         <div class="col-1"><i class="bi bi-person-circle fs-2"></i></div>
         <div class="col-11 mt-2"><strong>{{$comment->user->name}}</strong><br>
         <small>{{$comment->created_at}}</small>
       <p class="mt-2">{{$comment->comment}}</p>
-      <div>
+      <div class="d-flex">
 
         <form action="{{route('editar.comment', $comment->id)}}" method="get">
             @csrf

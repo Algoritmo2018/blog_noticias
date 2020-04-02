@@ -1,4 +1,4 @@
-  
+
 /* Animações scroll*/
 
 [data-anima]{
@@ -22,4 +22,24 @@ transform: translate3d(-50px,0,0);/*x y z*/
             opacity: 1;
             transform: translate3d(0,0,0);
         }
- 
+
+
+        ::-webkit-scrollbar{
+            width: 10px;
+           }
+           ::-webkit-scrollbar-track{
+          background-color: #212529;
+           }
+
+           /*::-webkit-scrollbar-button{
+            background-color: #000;
+             }*/
+
+             ::-webkit-scrollbar-thumb{
+              background-color: rgb(61, 61, 61);
+              border-radius: 10px;
+               }
+
+               ::-webkit-scrollbar-thumb:hover{
+                background-color: rgb(102, 102, 102);
+                 }

@@ -29,8 +29,8 @@
 
     @foreach ($slides as $slide)
     <div class="col" >
-      <div class="card h-100">
-        <img src="{{ asset('storage/img/slides/'.$slide->image_path) }}" alt="" class="card-img-top">
+      <div class="card">
+        <img src="{{ asset('storage/img/slides/'.$slide->image_path) }}" alt="" class="card-img-top" style="height: 150px">
         <div class="card-body">
                 <h5 class="card-title">{{$slide->title}}</h5>
                 <h6 class="car-subtitule">{{$slide->caption}}</h6>

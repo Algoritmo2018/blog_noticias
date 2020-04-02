@@ -28,7 +28,7 @@ class StoreUpdateArticle extends FormRequest
                 'max:30',
             ],
             'caption' =>[
-                'min:1',
+               
                 'max:30',
             ],
             'category_id' =>[
@@ -42,7 +42,7 @@ class StoreUpdateArticle extends FormRequest
             ],
             'image' =>[
                 'required',
-                'min:5',
+                'min:1',
                 'max:2048',
                 'image',
             ],

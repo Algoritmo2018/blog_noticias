@@ -1,13 +1,8 @@
 
  <!--Rodape-->
 
- <div class=" d-md-none d-lg-none d-sm-none d-block"  style="height: 250px;"></div>
- <div class="col-md d-sm-none d-lg-none d-md-block d-none"  style="height: 150px;"></div>
- <div class="col-lg d-md-none d-sm-none d-lg-block d-none"  style="height: 130px;"></div>
- <div class="col-sm d-md-none d-lg-none d-sm-block d-none"  style="height: 280px;"></div>
 
-
-  <footer   class="border-top text-bg-dark ">
+  <footer   class="border-top text-bg-dark mt-2">
     <div class="container">
         <div class="row py-3">
             <div class="col-12 col-md-4 text-center">

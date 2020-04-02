@@ -34,8 +34,8 @@ class SlideController extends Controller
 
         //Valida os campos
         $request->validate([
-            'title' => 'required|min:4|max:15|unique:slides',
-            'caption' => 'required|min:4|max:40',
+            'title' => 'max:20',
+            'caption' => 'max:40',
             'image' => 'required|image|max:2048',
         ]);
 

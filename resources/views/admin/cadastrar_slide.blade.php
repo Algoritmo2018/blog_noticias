@@ -44,7 +44,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">T</span>
           </div>
-          <input type="text" class="form-control" id="validationDefaultUsername"   aria-describedby="inputGroupPrepend2" name="title" required>
+          <input type="text" class="form-control" id="validationDefaultUsername"   aria-describedby="inputGroupPrepend2" name="title">
         </div>
       </div>
       <div class="col-md-12 mb-3">
@@ -52,7 +52,7 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">S</span>
-          </div> <input type="text" class="form-control" id="validationDefaultUsername"   aria-describedby="inputGroupPrepend2" name="caption" required>
+          </div> <input type="text" class="form-control" id="validationDefaultUsername"   aria-describedby="inputGroupPrepend2" name="caption" >
         </div>
       </div>
 

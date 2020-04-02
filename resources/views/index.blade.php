@@ -34,18 +34,17 @@
     <!--Fim Menu de links-->
 
 <!--inicio do artigo-->
-<div class="container py-5">
+<div class="container mt-1">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
-
       @foreach ($articles as $article)
   <div class="col" data-anima="centro">
-        <div class="card h-100">
-          <img src="{{asset('storage/img/article/'.$article->image_path)}}" alt="" class="card-img-top">
+        <div class="card" >
+          <img src="{{asset('storage/img/article/'.$article->image_path)}}" alt="" class="card-img-top" style="height: 150px">
           <div class="card-body">
            <small>{{$article->category->categoria}} - {{$article->created_at}}</small>
                   <h5 class="card-title">{{$article->title}}</h5>
                   <h6 class="car-subtitule">{{$article->caption}}</h6>
-                  <p class="card-text">{{$article->content}}</p>
+                  <p class="card-text text-truncate">{{$article->content}}</p>
                   <a href="{{route('artigo_completo', $article->id)}}" class="card-link">Ler artigo</a>
           </div>
   </div></div>

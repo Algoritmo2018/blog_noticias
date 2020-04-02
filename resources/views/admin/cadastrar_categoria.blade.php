@@ -57,13 +57,7 @@
 
 
   <!--fim Formulario de cadastro-->
-
-
-  <!--Inicio do footer-->
-
-@include('partials/footer')
-
-<!--Fim do footer-->
+ 
 
 </body>
 

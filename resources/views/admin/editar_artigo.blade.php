@@ -24,7 +24,7 @@
 
 
   <!-- Formulario de cadastro-->
-  <div class="container d-flex justify-content-center mt-3 mb-2">
+  <div class="container d-flex-column justify-content-center mt-3 mb-2">
 
     <form action="{{route('update_article', $articles->id)}}" method="post" enctype="multipart/form-data">
         @csrf()
@@ -33,7 +33,7 @@
     <hr class="mb-3">
     <div class="form-floating">
       <div class="col-md-12 mb-3">
-            <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" name="image" class="img-fluid rounded w-50 h-50" >
+            <img src="{{asset('storage/img/article/'.$articles->image_path)}}" alt="" name="image" class="img-fluid rounded" style="height: 200px" >
 
     </div>
       <div class="col-md-12 mb-3">
@@ -86,7 +86,7 @@
         @endif
 
       <button class="btn btn-primary" type="submit">Guardar</button>
-  </form><form action="{{route('destroy_article', $articles->id)}}" method="POST">
+  </form><form class="mt-2" action="{{route('destroy_article', $articles->id)}}" method="POST">
     @csrf()
     @method('DELETE')
     <input type="hidden" class="form-control" id="validationDefaultUsername" name="image" value="{{$articles->image_path}}"   aria-describedby="inputGroupPrepend2">

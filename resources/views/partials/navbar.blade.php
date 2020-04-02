@@ -46,21 +46,22 @@
       <button class="btn-close btn btn-light" style="background-color: rgb(0, 183, 255);" data-bs-dismiss="offcanvas"></button>
     </div>
 
-    <div class="offcanvas-body">
+    <div class="offcanvas-body ">
        <ul class="pagination d-flex flex-column justify-content-start">
          <li class="page-item mb-2">
           <a href="cadastrar-se.html" class="nav-link">Cadastrar-se</a>
-        </li><li class="page-item mb-2">
+        </li><li class="page-item mb-5">
             <a href="login.html" class="nav-link">Login</a>
         </li>
       </ul>
       </div>
+
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">Categorias</h5>
     </div>
+    <div style="margin-bottom: -7%"></div>
     <div class="offcanvas-body">
        <ul class="pagination d-flex flex-column justify-content-start ">
-
         @foreach ($categories as $category)
         <form action="{{route('article.search.category')}}"><li class="page-item mb-2">
 <input type="hidden" name="scategory" value="{{$category->id}}">

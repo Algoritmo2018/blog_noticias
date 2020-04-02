@@ -37,7 +37,7 @@ class HomeController
         // Para trazer todos os artigos do banco de dados com as suas categorias
         $articles = $articles->with('category');
         //Para trabalhar a paginação
-        $articles = $articles->simplepaginate(3);
+        $articles = $articles->simplepaginate(5);
         return view('index', compact('categories', 'slides', 'articles'));
     }
 

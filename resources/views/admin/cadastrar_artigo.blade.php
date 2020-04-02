@@ -37,7 +37,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">T</span>
           </div>
-          <input type="text" class="form-control" id="validationDefaultUsername" name="title"   aria-describedby="inputGroupPrepend2" required>
+          <input type="text" class="form-control" id="validationDefaultUsername" name="title"   aria-describedby="inputGroupPrepend2" value="{{old('title')}}" required>
         </div>
       </div>
       <div class="col-md-12 mb-3">
@@ -45,7 +45,7 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">S</span>
-          </div> <input type="text" class="form-control" id="validationDefaultUsername" name="caption"   aria-describedby="inputGroupPrepend2" required>
+          </div> <input type="text" class="form-control" id="validationDefaultUsername" name="caption" value="{{old('caption')}}"   aria-describedby="inputGroupPrepend2">
         </div>
       </div>
 
@@ -61,7 +61,7 @@
           </div>
 
           <div class="form-floating mt-3"><textarea class="form-control mb-2" name="content" id="msg" style="height: 100px;"
-            placeholder=" " cols="30" rows="10"></textarea>
+            placeholder=" " cols="30" rows="10">{{old('content')}}</textarea>
         <label for="msg">Escreva o conteudo do artigo:</label>
     </div>
     <div class="col-md-12 mb-3">
