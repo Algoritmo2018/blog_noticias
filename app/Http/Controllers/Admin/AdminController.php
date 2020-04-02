@@ -26,7 +26,7 @@ class AdminController
 
         //Para trazer os artigos correspondentes a pesquisa
         if (!empty($request->input('search'))) {
-             
+
             $valor = $request->input('search');
             $articles = $articles->where('title', 'like', "%{$valor}%");
         }
@@ -68,6 +68,7 @@ class AdminController
 
         $category = $category->create($data);
 
+        session()->flash('sucess', 'Categoria cadastrada com sucesso');
         return redirect()->route('cadastrar_categoria');
     }
 
@@ -90,6 +91,7 @@ class AdminController
             'categoria'
         ]));
 
+        session()->flash('sucess', 'Categoria editada com sucesso');
         return redirect()->route('homeadm');
     }
 
@@ -101,6 +103,9 @@ class AdminController
         }
 
         $category->delete();
+
+
+        session()->flash('sucess', 'Categoria deletada com sucesso');
         return redirect()->route('homeadm');
     }
 

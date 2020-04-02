@@ -26,6 +26,10 @@
    @include('partials/showslide')
    <!--fim do slide-->
 
+      <!--Message success-->
+ @include('partials/message')
+ <!--fim message success-->
+
 <!--Menu de links-->
 
 @include('partials/pagination')

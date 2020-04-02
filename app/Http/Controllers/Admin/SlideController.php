@@ -50,6 +50,7 @@ class SlideController extends Controller
         ]);
         $image->save();
 
+        session()->flash('sucess', 'Slide cadastrado com sucesso');
         return redirect()->route('cadastrar_slide');
     }
 
@@ -67,6 +68,8 @@ class SlideController extends Controller
         // Delecta a imagem x que esta na pasta storage/app/public/img/slides/
         File::delete('storage/img/slides/' . $request->input('image'));
 
+
+        session()->flash('sucess', 'Slide deletado com sucesso');
         return redirect()->route('slides');
     }
 }

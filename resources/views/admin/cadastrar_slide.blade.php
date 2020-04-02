@@ -30,6 +30,11 @@
         @csrf
     <h1>Cadastrar um novo Slide</h1>
     <hr class="mb-3">
+
+      <!--Message success-->
+ @include('partials/message')
+ <!--fim message success-->
+
    <!--inicio error-->
  @include('partials/error')
  <!--fim error-->

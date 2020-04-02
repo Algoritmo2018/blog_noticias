@@ -35,6 +35,10 @@
 
         <div>
       </div>
+        <!--Message success-->
+ @include('partials/message')
+ <!--fim message success-->
+
       <hr class="mt-3">
 
       <h2 class="mt-2">Comentarios</h2>

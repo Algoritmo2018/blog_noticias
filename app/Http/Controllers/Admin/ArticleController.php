@@ -26,7 +26,7 @@ class ArticleController extends Controller
             'image_path' => $request->file('image')->hashName(),
         ]);
         $image->save();
-
+session()->flash('sucess', 'Artigo cadastrado com sucesso');
         return redirect()->route('cadastrar_artigo');
     }
 
@@ -76,12 +76,15 @@ class ArticleController extends Controller
              $articles->image_path = $dados['image'];
             $articles->save();
         }
+
+
+session()->flash('sucess', 'Artigo editado com sucesso');
         return redirect()->route('homeadm');
     }
 
 
     public function Destroy(Request $request, Article $articles, string $id)
-    { 
+    {
         // Traz o id da imagem e verifica si o mesmo está cadastrado no banco de dados
 
         if (!$articles = $articles->find($id)) {
@@ -93,6 +96,8 @@ class ArticleController extends Controller
         // Delecta a imagem x que esta na pasta storage/app/public/img/slides/
         File::delete('storage/img/article/' . $request->input('image'));
 
+
+session()->flash('sucess', 'Artigo deletado com sucesso');
         return redirect()->route('homeadm');
     }
 }

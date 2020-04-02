@@ -24,8 +24,13 @@
 
 
  <!--Tecnologia-->
+ <!--Message success-->
+ @include('partials/message')
+ <!--fim message success-->
  <div class="container py-5">
+
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+
 
     @foreach ($slides as $slide)
     <div class="col" >

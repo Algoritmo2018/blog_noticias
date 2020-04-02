@@ -24,6 +24,7 @@ $comment = new Comment([
 ]);
 $comment->save();
 
+session()->flash('sucess', 'Comentario criado com sucesso');
 return back();
     }
 
@@ -58,6 +59,9 @@ return back();
        //Traz todas as categorias cadastradas no banco de dados
        $categories = $category->all();
 
+
+       session()->flash('sucess', 'Comentario editado com sucesso');
+
        return redirect()->route('artigo_completo', $comments->find($id)->article_id);
     }
 
@@ -72,6 +76,7 @@ return back();
         // Delecta o comentario banco de dados
         $comments->delete();
 
+        session()->flash('sucess', 'Comentario deletado com sucesso');
         return back();
     }
 }
