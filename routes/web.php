@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/verify-email', function () {
+    return view('auth/verify-email');
+});
+
 Route::get('/navbaradm', [AdminController::class, 'Navbaradm']);
 
 Route::get('/navbar', [HomeController::class, 'Navbar']);

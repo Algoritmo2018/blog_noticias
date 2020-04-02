@@ -8,8 +8,6 @@
         <hr class="mb-3">
         <div class="form-floating">
 
-
-
         @csrf
 
         <!-- Email Address -->
@@ -21,7 +19,9 @@
                   <span class="input-group-text" id="inputGroupPrepend2">@</span>
                 </div>
             <x-text-input id="email" class="form-control" type="email" name="email" aria-describedby="inputGroupPrepend2"  :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <div class="col-12" style="color: rgb(161, 8, 8)">
+            <x-input-error :messages="$errors->get('email')"  />
+            </div>
         </div>  </div>
 
         <!-- Password -->
@@ -35,8 +35,8 @@
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <div class="col-12" style="color: rgb(161, 8, 8)">
+            <x-input-error :messages="$errors->get('password')"  /></div>
         </div></div>
     </div>
 
@@ -45,19 +45,19 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Lembrar-me') }}</span>
             </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('Esqueceu sua senha?') }}
                 </a>
             @endif
 
             <x-primary-button class="btn btn-primary ms-2">
-                {{ __('Log in') }}
+                {{ __('Entrar') }}
             </x-primary-button>
         </div>
     </form>
