@@ -48,7 +48,9 @@
         <div class="col-11 mt-2"><strong>{{$comment->user->name}}</strong><br>
         <small>{{$comment->created_at}}</small>
       <p class="mt-2">{{$comment->comment}}</p>
-      <div class="d-flex">
+   @if(auth()->user()->id == $comment->user_id)   <div class="d-flex">
+
+
 
         <form action="{{route('editar.comment', $comment->id)}}" method="get">
             @csrf
@@ -58,8 +60,9 @@
         <form action="{{route('delete.comment', $comment->id)}}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger" type="submit">Eliminar</button></form></div>
+            <button class="btn btn-danger" type="submit">Eliminar</button></form></div>  @endif
       </div>
+
       @endforeach
       </div>
 
@@ -81,6 +84,7 @@
     @endif
     <button type="submit" class="btn btn-primary">Guardar</button>
 </div></form>
+
     </div>
   </main>
 

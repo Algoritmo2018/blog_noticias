@@ -25,6 +25,9 @@
 
   <!-- Formulario de cadastro-->
   <div class="container d-flex-column justify-content-center mt-3 mb-2">
+ <!--inicio error-->
+ @include('partials/error')
+ <!--fim error-->
 
     <form action="{{route('update_article', $articles->id)}}" method="post" enctype="multipart/form-data">
         @csrf()
@@ -78,12 +81,7 @@
       </div>
     </div>
         </div>
-        @if($errors->any())
-        @foreach ($errors->all() as $error)
-               {{$error}}
 
-        @endforeach
-        @endif
 
       <button class="btn btn-primary" type="submit">Guardar</button>
   </form><form class="mt-2" action="{{route('destroy_article', $articles->id)}}" method="POST">

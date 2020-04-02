@@ -35,7 +35,7 @@ Route::get('/navbar', [HomeController::class, 'Navbar']);
 
 Route::get('/index', [HomeController::class, 'index'])->name('home');
 
-Route::get('/{id}/artigo_completo', [HomeController::class, 'artigo_completo'])->name('artigo_completo');
+Route::get('/{id}/artigo_completo', [HomeController::class, 'artigo_completo'])->middleware(['auth', 'verified'])->name('artigo_completo');
 
 Route::get('/homeadm', [AdminController::class, 'HomeAdm'])->name('homeadm');
 

@@ -27,6 +27,9 @@
 
   <!-- Formulario de cadastro-->
   <div class="container d-flex justify-content-center mt-3 mb-2">
+ <!--inicio error-->
+ @include('partials/error')
+ <!--fim error-->
 
   <form action="{{route('armazenar_categoria')}}" method="POST">
     @csrf()
@@ -45,19 +48,14 @@
 
       </div>
         </div>
-        @if($errors->any())
-        @foreach ($errors->all() as $error)
-               {{$error}}
 
-        @endforeach
-        @endif
 
       <button class="btn btn-primary" type="submit">Guardar</button>
   </form></div>
 
 
   <!--fim Formulario de cadastro-->
- 
+
 
 </body>
 

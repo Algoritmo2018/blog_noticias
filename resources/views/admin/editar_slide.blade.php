@@ -25,6 +25,9 @@
 
   <!-- Formulario de cadastro-->
   <div class="container d-flex justify-content-center mt-3 mb-2">
+ <!--inicio error-->
+ @include('partials/error')
+ <!--fim error-->
 
   <form>
     <h1>Editar Slide</h1>

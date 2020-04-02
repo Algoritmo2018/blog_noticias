@@ -30,12 +30,10 @@
         @csrf
     <h1>Cadastrar um novo Slide</h1>
     <hr class="mb-3">
-    @if($errors->any())
-    @foreach ($errors->all() as $error)
-           {{$error}}
+   <!--inicio error-->
+ @include('partials/error')
+ <!--fim error-->
 
-    @endforeach
-    @endif
     <div class="form-floating">
 
       <div class="col-md-12 mb-3">

@@ -29,6 +29,11 @@
         @csrf()
     <h1>Cadastrar um novo artigo</h1>
     <hr class="mb-3">
+
+    <!--inicio error-->
+ @include('partials/error')
+ <!--fim error-->
+
     <div class="form-floating">
 
       <div class="col-md-12 mb-3">
@@ -71,12 +76,6 @@
       </div>
     </div>
         </div>
-        @if($errors->any())
-        @foreach ($errors->all() as $error)
-               {{$error}}
-
-        @endforeach
-        @endif
 
       <button class="btn btn-primary" type="submit">Guardar</button>
   </form></div>
