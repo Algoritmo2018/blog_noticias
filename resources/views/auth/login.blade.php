@@ -25,7 +25,7 @@
         </div>  </div>
 
         <!-- Password -->
-        <div class="class="col-md-12 mb-3"">
+        <div class="col-md-12 mb-3">
             <x-input-label for="password" :value="__('Password')" />
             <div class="input-group">
                 <div class="input-group-prepend">
