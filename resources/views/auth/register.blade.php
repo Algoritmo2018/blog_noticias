@@ -35,6 +35,19 @@
             </div>
         </div>
 
+        <!-- Tipo de usuario -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Adm</label>
+            </div>
+            <select class="form-select  col-md-12 rounded-2" id="inputGroupSelect01" name="is_admin">
+
+                <option value="0">Não</option>
+              <option value="1">Sim</option>
+
+            </select>
+          </div>
+
         <!-- Password -->
         <div class="col-md-12 mb-3">
             <x-input-label for="password" :value="__('Senha')" />
@@ -70,7 +83,8 @@
     </div>
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Si já esta registrado? sim') }}
+                {{ __('Eu já tenho uma conta.
+                ') }}
             </a>
 
             <x-primary-button class="btn btn-primary ms-1">

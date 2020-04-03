@@ -49,6 +49,9 @@
     <div style="margin-bottom: -13px;"></div>
     <div class="offcanvas-body">
        <ul class="pagination d-flex flex-column justify-content-start">
+        <li class="page-item mb-2">
+            <a href="{{route('home')}}" class="nav-link">Area normal</a>
+          </li>
          <li class="page-item mb-2">
          <a href="{{route('cadastrar_artigo')}}" class="nav-link">Cadastrar Artigo</a>
         </li>

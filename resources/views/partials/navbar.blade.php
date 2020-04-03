@@ -54,7 +54,14 @@
                 <a href="#" class="nav-link text-">Olá, {{Auth::user()->name}}</a>
               </li> <li class="page-item mb-2">
             <a href="{{route('profile.edit')}}" class="nav-link">Perfil</a>
-          </li><li class="page-item mb-5">
+          </li>
+          @if(Auth::check() && Auth::user()->is_admin)
+          <li class="page-item mb-2">
+              <a href="{{route('homeadm')}}" class="nav-link">Area adm</a>
+            </li>
+            @endif
+          <li class="page-item mb-5">
+
               <!-- Authentication -->
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
