@@ -43,5 +43,22 @@ btnFechar.onclick = function(){
 
     janelaModal.classList.add("escondeJanelaModal");
     janelaModal.classList.remove("mostraJanelaModal");
+
 }
 }
+
+
+
+// Modal do botão de deletar usuario
+
+var btn_cancel = document.getElementById("btn_fechar_modal");
+var btn_mostrar = document.getElementById("btn_show_modal");
+var div_modal = document.getElementById("modal_deletar_user");
+
+function mostrarmodal(){
+    div_modal.style.display="block";
+    }
+
+    function fecharmodal(){
+        div_modal.style.display="none";
+        }

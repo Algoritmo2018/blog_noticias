@@ -11,15 +11,15 @@
 
     </header>
 
-    <x-danger-button
+      <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+    <div class="" style="display: none" id="modal_deletar_user">
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf
-            @method('delete')
+            @method('DELETE')
 
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                 {{ __('Are you sure you want to delete your account?') }}
@@ -29,16 +29,19 @@
                 {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
             </p>
 
-            <div class="mt-6">
+            <div class="col-md-12 mb-3">
                 <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
-
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend2"><i class="bi-key" style="font-size: 24px; line-height: 24px;"></i></span>
+                    </div>
                 <x-text-input
                     id="password"
                     name="password"
                     type="password"
-                    class="mt-1 block w-3/4"
+                    class="form-control"
                     placeholder="{{ __('Password') }}"
-                />
+                /> </div>
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
             </div>
@@ -48,10 +51,12 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button >
+
+
+                 <x-danger-button >
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </div>
         </form>
-    </x-modal>
+    </div>
 </section>
