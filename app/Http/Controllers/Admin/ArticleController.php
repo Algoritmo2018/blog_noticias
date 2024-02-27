@@ -49,7 +49,7 @@ class ArticleController extends Controller
             return back();
         }
         //Traz todas as categorias cadastradas no banco de dados
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/editar_artigo', compact('categories', 'articles'));
     }
 

@@ -29,7 +29,7 @@ class AdminController
         $slides = $slide->all();
 
         // Para trazer todas as categorias
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 
 
         //Para trazer os artigos correspondentes a pesquisa
@@ -56,7 +56,7 @@ class AdminController
             return redirect()->route('home');
         }
 
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/cadastrar_artigo', compact('categories'));
     }
 
@@ -67,7 +67,7 @@ class AdminController
         if (!(Auth::check() && Auth::user()->is_admin)) {
             return redirect()->route('home');
         }
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/editar_artigo', compact('categories'));
     }
 
@@ -80,7 +80,7 @@ class AdminController
             return redirect()->route('home');
         }
 
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/cadastrar_categoria', compact('categories'));
     }
 
@@ -111,7 +111,7 @@ class AdminController
         if (!$category = $category->where('id', $id)->first()) {
             return back();
         }
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/editar_categoria', compact('category', 'categories'));
     }
     public function UpdateCategoria(ArmazenarUpdateCategoria $request, Category $category, string $id)
@@ -161,13 +161,13 @@ class AdminController
         if (!(Auth::check() && Auth::user()->is_admin)) {
             return redirect()->route('home');
         }
-        
-        $categories = $category->all();
+
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/cadastrar_slide', compact('categories'));
     }
     public function EditarSlide(Category $category)
     {
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         return view('admin/editar_slide', compact('categories'));
     }
 }

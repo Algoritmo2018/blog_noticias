@@ -23,7 +23,7 @@ class SlideController extends Controller
             return redirect()->route('home');
         }
 
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
         $slides = Slide::all();
 
         return view('admin/slides', compact('categories', 'slides'));

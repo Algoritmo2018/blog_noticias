@@ -16,7 +16,7 @@ class HomeController
 
     public function index(Category $category, Slide $slide, Article $articles, Request $request)
     { // Para trazer todas as categorias
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 
         //Para trazer todos os slides
         $slides = $slide->all();
@@ -51,7 +51,7 @@ class HomeController
         $articles = $articles->where('id',$id)->first();
 
 //Carrega todas as categorias
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 
         $comments =$comment->where('article_id', $id)->with('user')->simplepaginate(12);
         return view('artigo_completo', compact('categories', 'articles', 'comments'));

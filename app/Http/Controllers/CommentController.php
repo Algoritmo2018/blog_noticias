@@ -43,7 +43,7 @@ class CommentController extends Controller
         }
 
         //Traz todas as categorias cadastradas no banco de dados
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 
         return view('editar_comentario', compact('comments', 'categories'));
     }
@@ -68,7 +68,7 @@ class CommentController extends Controller
 
 
         //Traz todas as categorias cadastradas no banco de dados
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 
 
         session()->flash('sucess', 'Comentario editado com sucesso');
@@ -80,7 +80,7 @@ class CommentController extends Controller
     public function Destroy(string $id, Comment $comments)
     {
 
- 
+
 
         // verifica si o id está cadastrado no banco de dados
         if (!$comments = $comments->find($id)) {

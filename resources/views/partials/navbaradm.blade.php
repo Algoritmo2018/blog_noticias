@@ -76,7 +76,7 @@
        <ul class="pagination d-flex flex-column justify-content-start ">
       @foreach ($categories as $category)
       <li class="page-item mb-2">
-          <a href="{{route('editar_categoria', $category->id)}}" class="text-white">{{$category->categoria}}</a>
+          <a href="{{route('editar_categoria', $category->id)}}" class="text-white">{{ucfirst($category->categoria)}}</a>
         </li>
     @endforeach
       </ul>

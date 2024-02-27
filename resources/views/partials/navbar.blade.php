@@ -102,7 +102,7 @@
         <form action="{{route('article.search.category')}}"><li class="page-item mb-2">
 <input type="hidden" name="scategory" value="{{$category->id}}">
 <a href="{{route('article.search.category')}}" class="nav-link" onclick="event.preventDefault();
-this.closest('form').submit();">{{$category->categoria}}</a>
+this.closest('form').submit();">{{ucfirst($category->categoria)}}</a>
            </li></form>
       @endforeach
       </ul>

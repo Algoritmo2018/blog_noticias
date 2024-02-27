@@ -18,9 +18,9 @@ class ProfileController extends Controller
     public function edit(Request $request, Category $category): View
     {
         // Para trazer todas as categorias
-        $categories = $category->all();
+        $categories = $category->orderBy('categoria', 'asc')->get();
 $user =$request->user();
- 
+
         return view('profile.edit', compact('user','categories'),);
 
     }
