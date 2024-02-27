@@ -27,9 +27,7 @@ class UpdateArticle extends FormRequest
                 'min:4',
                 'max:30',
             ],
-            'caption' =>[
-                'required',
-                'min:4',
+            'caption' =>[ 
                 'max:30',
             ],
             'category_id' =>[
@@ -42,7 +40,7 @@ class UpdateArticle extends FormRequest
                 'min:5',
             ],
             'imagenew' =>[
-                 
+
                 'min:5',
                 'max:2048',
                 'image',

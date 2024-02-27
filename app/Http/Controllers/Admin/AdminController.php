@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Home\HomeController;
 use App\Models\Slide;
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArmazenarUpdateCategoria;
-use App\Models\Article;
 
 class AdminController
 {
@@ -14,8 +16,14 @@ class AdminController
 
 
 
+
     public function HomeAdm(Category $category, Article $articles, Slide $slide, Request $request)
     {
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
 
         // Para trazer todas as categorias
         $slides = $slide->all();
@@ -43,6 +51,11 @@ class AdminController
     public function CadastrarArtigo(Category $category)
     {
 
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         $categories = $category->all();
         return view('admin/cadastrar_artigo', compact('categories'));
     }
@@ -50,6 +63,10 @@ class AdminController
     public function EditarArtigo(Category $category)
     {
 
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
         $categories = $category->all();
         return view('admin/editar_artigo', compact('categories'));
     }
@@ -57,12 +74,23 @@ class AdminController
     public function CadastrarCategoria(Category $category)
     {
 
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         $categories = $category->all();
         return view('admin/cadastrar_categoria', compact('categories'));
     }
 
     public function ArmazenarCategoria(ArmazenarUpdateCategoria $request, Category $category)
     {
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
 
         $data = $request->all();
 
@@ -75,6 +103,11 @@ class AdminController
     public function EditarCategoria(Category $category, string|int $id)
     {
 
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         if (!$category = $category->where('id', $id)->first()) {
             return back();
         }
@@ -83,6 +116,13 @@ class AdminController
     }
     public function UpdateCategoria(ArmazenarUpdateCategoria $request, Category $category, string $id)
     {
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
+
         if (!$category = $category->find($id)) {
             return back();
         }
@@ -98,6 +138,11 @@ class AdminController
     public function DestroyCategoria(Category $category, string|int $id)
     {
 
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         if (!$category = $category->find($id)) {
             return back();
         }
@@ -111,6 +156,12 @@ class AdminController
 
     public function CadastrarSlide(Category $category)
     {
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+        
         $categories = $category->all();
         return view('admin/cadastrar_slide', compact('categories'));
     }

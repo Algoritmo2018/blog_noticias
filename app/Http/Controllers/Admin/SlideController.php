@@ -6,6 +6,7 @@ use App\Models\Slide;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class SlideController extends Controller
@@ -15,6 +16,13 @@ class SlideController extends Controller
 
     public function SlidesCadastrados(Category $category)
     {
+
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         $categories = $category->all();
         $slides = Slide::all();
 
@@ -26,10 +34,18 @@ class SlideController extends Controller
 
     public function store(Request $request)
     {
+
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
+
         //Retorna o numero de registros da tabela slides
         $QRegistro = Slide::count();
         if ($QRegistro == 3) {
-            return back();
+            session()->flash('sucess', 'Apenas só podem ser cadastrado 3 slides');
+            return redirect()->route('cadastrar_slide');
         }
 
         //Valida os campos
@@ -56,6 +72,12 @@ class SlideController extends Controller
 
     public function Destroy(Request $request, Slide $slide)
     {
+
+
+        //Veirifica si o usuario logado é admnistrador
+        if (!(Auth::check() && Auth::user()->is_admin)) {
+            return redirect()->route('home');
+        }
 
         // Traz o id da imagem e verifica si o mesmo está cadastrado no banco de dados
         $id = $request->input('id_slide');

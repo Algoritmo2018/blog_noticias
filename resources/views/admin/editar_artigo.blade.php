@@ -53,7 +53,7 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroupPrepend2">S</span>
-          </div> <input type="text" name="caption" class="form-control" id="validationDefaultUsername" value="{{$articles->caption}}"   aria-describedby="inputGroupPrepend2" required>
+          </div> <input type="text" name="caption" class="form-control" id="validationDefaultUsername" value="{{$articles->caption}}"   aria-describedby="inputGroupPrepend2" >
         </div>
       </div>
 
