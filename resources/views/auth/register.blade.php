@@ -48,6 +48,21 @@
             </select>
           </div>
 
+  <!-- codigoadm -->
+  <div class="col-md-12 mb-3">
+    <x-input-label for="codigoadm" :value="__('codigo')" />
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend2">adm</span>
+        </div>
+    <x-text-input id="codigoadm" class="form-control"
+                    type="text"
+                    name="codigoadm"
+                     />
+                </div>
+<div class="text-muted small">campo não obrigatorio</div>
+</div>
+
         <!-- Password -->
         <div class="col-md-12 mb-3">
             <x-input-label for="password" :value="__('Senha')" />

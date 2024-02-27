@@ -24,7 +24,9 @@
  <!--inicio da Navbar-->
  @include('partials/navbar')
  <!--fim da Navbar-->
-
+    <!--Message error-->
+    @include('partials/messagerror')
+    <!--fim message error-->
 
   <!--inicio do slide-->
   @include('partials/showslide')
@@ -44,7 +46,7 @@
            <small>{{$article->category->categoria}} - {{$article->created_at}}</small>
                   <h5 class="card-title">{{$article->title}}</h5>
                   <h6 class="car-subtitule">{{$article->caption}}</h6>
-                  <p class="card-text text-truncate">{{$article->content}}</p>
+                  <p class="card-text text-truncate"><?= $article->content ?></p>
                   <a href="{{route('artigo_completo', $article->id)}}" class="card-link">Ler artigo</a>
           </div>
   </div></div>

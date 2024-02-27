@@ -31,7 +31,7 @@
       <small class="mt-2">{{$articles->category->categoria}} - {{$articles->created_at}}</small>
       <h5 class="mt-2">{{$articles->title}}</h5>
       <h6 class="mt-2">{{$articles->caption}}</h6>
-      <p class="tex-right">{{$articles->content}}</p>
+      <p class="tex-right"><?= $articles->content ?></p>
 
         <div>
       </div>

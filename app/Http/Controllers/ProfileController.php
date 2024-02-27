@@ -19,10 +19,9 @@ class ProfileController extends Controller
     {
         // Para trazer todas as categorias
         $categories = $category->orderBy('categoria', 'asc')->get();
-$user =$request->user();
+        $user = $request->user();
 
-        return view('profile.edit', compact('user','categories'),);
-
+        return view('profile.edit', compact('user', 'categories'),);
     }
 
     /**

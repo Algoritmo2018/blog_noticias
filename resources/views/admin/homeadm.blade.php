@@ -47,7 +47,7 @@
          <small>{{$article->category->categoria}} - {{$article->created_at}}</small>
                 <h5 class="card-title">{{$article->title}}</h5>
                 <h6 class="car-subtitule">{{$article->caption}}</h6>
-                <p class="card-text text-truncate">{{$article->content}}</p>
+                <p class="card-text text-truncate"><?= $article->content ?></p>
                 <a href="{{route('editar_artigo', $article->id)}}" class="card-link">Editar Artigo</a>
         </div>
 </div>

@@ -32,12 +32,19 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'is_admin' => ['required','boolean', 'in:0,1'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'is_admin' => ['required', 'boolean', 'in:0,1'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+        
+        //Codigo que permite si cadastrar como adm
+        $codigoadm = "3lbv1llvasvd2119829129";
 
-
+        //Verifica si o cara tem permissão para si cadastrar como administrador
+        if ($codigoadm != $request->input('codigoadm') && $request->is_admin == 1) {
+            session()->flash('error', 'Você não têm permissão para si registrar como adm');
+            return redirect()->route('home');
+        }
 
         $user = User::create([
             'name' => $request->name,
