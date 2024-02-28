@@ -47,7 +47,16 @@ class User extends Authenticatable
     ];
 
 
-    public function comment(): HasMany{
+    public function comment(): HasMany
+    {
         return $this->hasMany(Comment::class);
-     }
+    }
+
+    //Para eliminar os dados em cascata tabela users e tabela comments
+    public static function booted()
+    {
+        static::deleting(function (User $user) {
+            $user->comment()->delete();
+        });
+    }
 }
