@@ -37,7 +37,7 @@
 
   <form action="{{route('armazenar_categoria')}}" method="POST">
     @csrf()
-    <h1>Criar Categoria</h1>
+    <h3>Criar Categoria</h3>
     <hr class="mb-3">
     <div class="form-floating">
 

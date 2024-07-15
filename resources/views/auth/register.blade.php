@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-center mt-3 mb-2">
 
     <form method="POST" action="{{ route('register') }}">
-        <h1>Insira os seus dados, para poder criar a sua conta</h1>
+        <h3>Registar-se</h3>
         <hr class="mb-3">
         <div class="form-floating">
 

@@ -2,7 +2,7 @@
  <!--Rodape-->
 
 
-  <footer   class="border-top text-bg-dark mt-2">
+  <footer   class="border-top text-bg-dark mt-1">
     <div class="container">
         <div class="row py-3">
             <div class="col-12 col-md-4 text-center">

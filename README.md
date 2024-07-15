@@ -21,7 +21,7 @@ cp .env.example .env
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME="Especializa Ti"
-APP_URL=http://localhost:8989
+APP_URL=http://localhost:1215
 
 DB_CONNECTION=mysql
 DB_HOST=db
@@ -63,6 +63,10 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
+Install o boostrap 5
+```sh 
+```
+
 
 Acesse o projeto
-[http://localhost:8989](http://localhost:8989)
+[http://localhost:1215](http://localhost:1215)

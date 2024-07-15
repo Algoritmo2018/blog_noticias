@@ -32,7 +32,7 @@
   <form action="{{route('update_categoria', $category->id)}}" method="post">
     @csrf()
     @method('PUT')
-    <h1>Editar Categoria</h1>
+    <h3>Editar Categoria</h3>
     <hr class="mb-3">
     <div class="form-floating">
 

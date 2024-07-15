@@ -4,7 +4,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
     <div class="container d-flex justify-content-center mt-3 mb-2">
     <form method="POST" action="{{ route('login') }}">
-        <h1>Insira os seus dados, para iniciar sessão</h1>
+        <h3>Login</h3>
         <hr class="mb-3">
         <div class="form-floating">
 

@@ -37,7 +37,7 @@ class HomeController
         // Para trazer todos os artigos do banco de dados com as suas categorias
         $articles = $articles->with('category');
         //Para trabalhar a paginação
-        $articles = $articles->simplepaginate(12);
+        $articles = $articles->simplepaginate(15);
         return view('index', compact('categories', 'slides', 'articles'));
     }
 
@@ -53,7 +53,7 @@ class HomeController
 //Carrega todas as categorias
         $categories = $category->orderBy('categoria', 'asc')->get();
 
-        $comments =$comment->where('article_id', $id)->with('user')->simplepaginate(12);
+        $comments =$comment->where('article_id', $id)->with('user')->simplepaginate(4);
         return view('artigo_completo', compact('categories', 'articles', 'comments'));
     }
 }

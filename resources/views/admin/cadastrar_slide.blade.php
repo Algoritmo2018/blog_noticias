@@ -28,7 +28,7 @@
 
     <form action="{{ route('create.slide') }}" method="POST" enctype="multipart/form-data">
         @csrf
-    <h1>Cadastrar um novo Slide</h1>
+    <h3>Cadastrar um novo Slide</h3>
     <hr class="mb-3">
 
       <!--Message success-->

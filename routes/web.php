@@ -21,9 +21,9 @@ use App\Http\Controllers\Admin\ArticleController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/verify-email', function () {
     return view('auth/verify-email');
@@ -33,7 +33,7 @@ Route::get('/navbaradm', [AdminController::class, 'Navbaradm']);
 
 Route::get('/navbar', [HomeController::class, 'Navbar']);
 
-Route::get('/index', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/{id}/artigo_completo', [HomeController::class, 'artigo_completo'])->middleware(['auth', 'verified'])->name('artigo_completo');
 
@@ -100,7 +100,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
- 
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

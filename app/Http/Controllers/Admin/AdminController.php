@@ -41,7 +41,7 @@ class AdminController
         // Para trazer todos os artigos do banco de dados com as suas categorias
         $articles = $articles->with('category');
         //Para trabalhar a paginação
-        $articles = $articles->simplepaginate(12);
+        $articles = $articles->simplepaginate(15);
 
 
         return view('admin/homeadm', compact('categories', 'articles', 'slides'));

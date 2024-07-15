@@ -27,13 +27,13 @@
   <div class="container d-flex justify-content-center mt-3 mb-2">
     <form action="{{route('create.article')}}" method="POST" enctype="multipart/form-data">
         @csrf()
-    <h1>Cadastrar um novo artigo</h1>
+    <h3>Cadastrar artigo</h3>
     <hr class="mb-3">
 
    <!--Message success-->
    @include('partials/message')
    <!--fim message success-->
-   
+
     <!--inicio error-->
  @include('partials/error')
  <!--fim error-->

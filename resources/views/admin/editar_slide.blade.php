@@ -30,7 +30,7 @@
  <!--fim error-->
 
   <form>
-    <h1>Editar Slide</h1>
+    <h3>Editar Slide</h3>
     <hr class="mb-3">
     <div class="form-floating">
       <div class="col-md-12 mb-3">

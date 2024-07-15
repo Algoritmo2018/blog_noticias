@@ -12,9 +12,7 @@
   <script src="{{asset('js/scripts.js')}}" defer></script>
   <title>Blog de noticias</title>
   <style>
-    a{
-      text-decoration: none;
-    }
+
   </style>
 
 </head>
@@ -36,7 +34,7 @@
     <!--Fim Menu de links-->
 
 <!--inicio do artigo-->
-<div class="container mt-1">
+<div class="container mt-1 mb-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
       @foreach ($articles as $article)
   <div class="col" data-anima="centro">

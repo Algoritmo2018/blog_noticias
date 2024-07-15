@@ -32,7 +32,7 @@
     <form action="{{route('update_article', $articles->id)}}" method="post" enctype="multipart/form-data">
         @csrf()
         @method('PUT')
-    <h1>Editar artigo</h1>
+    <h3>Editar artigo</h3>
     <hr class="mb-3">
     <div class="form-floating">
       <div class="col-md-12 mb-3">
