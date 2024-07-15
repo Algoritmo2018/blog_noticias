@@ -1,17 +1,14 @@
 
-# Setup Docker Laravel 10 com PHP 8.1
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+# Blog de noticias Docker Laravel 10 com PHP 8.1 
 
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-10-com-php-8.1 https://github.com/especializati/setup-docker-laravel.git app-laravel
+git clone -b https://github.com/Algoritmo2018/blog_noticias.git 
 ```
-```sh
-cd app-laravel
+ 
 ```
-
-
+ 
 Crie o Arquivo .env
 ```sh
 cp .env.example .env
@@ -20,7 +17,7 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Especializa Ti"
+APP_NAME="Blog de noticias"
 APP_URL=http://localhost:1215
 
 DB_CONNECTION=mysql
