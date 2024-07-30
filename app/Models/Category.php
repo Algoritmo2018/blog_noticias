@@ -19,4 +19,11 @@ class Category extends Model
     public function article(): HasMany{
         return $this->hasMany(Article::class);
      }
+      //Para eliminar os dados em cascata tabela categoria e todos os artigos relacionados a está categoria
+  public static function booted()
+  {
+      static::deleting(function (Category $category) {
+          $category->article()->delete();
+      });
+  }
 }

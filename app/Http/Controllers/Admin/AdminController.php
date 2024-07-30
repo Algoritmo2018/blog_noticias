@@ -146,7 +146,13 @@ class AdminController
         if (!$category = $category->find($id)) {
             return back();
         }
+     //Elimina um autor todos os livros que estão associados a esse autor e elimina todos os emprestimos referenciados a este livro
+     $articles = $category->article;
 
+    foreach ($articles as $article) {
+        $article->comment()->delete();
+        $article->delete();
+    }
         $category->delete();
 
 

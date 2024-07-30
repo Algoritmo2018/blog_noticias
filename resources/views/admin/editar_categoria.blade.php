@@ -49,10 +49,21 @@
 
 
       <button class="btn btn-primary" type="submit">Guardar</button>
-  </form> <form class="mt-2" action="{{route('destroy_categoria', $category->id)}}" method="POST">
-    @csrf()
-    @method('DELETE')
-    <button class="btn btn-danger" type="submit">Apagar</button></form></div>
+  </form>
+    <button class="btn btn-danger" data-bs-toggle="modal"
+    data-bs-target="#delete-{{ $category->id }}" >Apagar</button>
+    @component('components.modal_delete')
+    @slot('id')
+        {{ $category->id }}
+    @endslot
+    @slot('route')
+        {{ route('destroy_categoria', $category->id) }}
+    @endslot
+    @slot('elements')
+
+        @endslot
+@endcomponent
+ </div>
 
 
   <!--fim Formulario de cadastro-->

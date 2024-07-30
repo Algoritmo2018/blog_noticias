@@ -61,10 +61,20 @@
 
         <button class="btn btn-primary me-2" type="submit">Editar</button>
     </form>
-        <form action="{{route('delete.comment', $comment->id)}}" method="post">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger" type="submit">Eliminar</button></form></div>  @endif
+
+            <button class="btn btn-danger" data-bs-toggle="modal"
+            data-bs-target="#delete-{{ $comment->id }}" >Eliminar</button>
+            @component('components.modal_delete')
+            @slot('id')
+                {{ $comment->id }}
+            @endslot
+            @slot('route')
+                {{ route('delete.comment', $comment->id) }}
+            @endslot
+            @slot('elements')
+
+                @endslot
+        @endcomponent </div>  @endif
       </div>
 
       @endforeach
