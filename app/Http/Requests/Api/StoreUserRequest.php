@@ -35,11 +35,7 @@ class StoreUserRequest extends FormRequest
                 'max:255',
                 // 'unique:users,email'
                 Rule::unique('users'),
-            ],
-            'is_admin' => [
-                'required',
-                'in:0,1', 
-            ],
+            ], 
             'password' => [
                 'required',
                 'min:6',
