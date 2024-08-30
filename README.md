@@ -62,6 +62,7 @@ php artisan key:generate
 
 Install o boostrap 5
 ```sh 
+https://www.youtube.com/watch?v=RUAIznF576c&t=668s
 ```
 
 
